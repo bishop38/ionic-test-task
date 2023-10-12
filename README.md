@@ -1,4 +1,3 @@
-````markdown
 # ionic-test-task
 
 ## Версии окружения
@@ -16,6 +15,7 @@
 ```bash
 git clone https://github.com/bishop38/ionic-test-task.git
 ```
+
 ````
 
 2. После перейдите в папку:
@@ -89,5 +89,4 @@ npx cap sync
 Теперь вы готовы к работе над проектом Ionic Test Task. Счастливого кодирования!
 
 ```
-
-```
+````
