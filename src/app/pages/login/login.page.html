@@ -1,0 +1,37 @@
+<ion-content [fullscreen]="true">
+  <div class="flex-center">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title style="text-align: center">Авторизация</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item>
+          <ion-input
+            label="Email"
+            labelPlacement="floating"
+            type="email"
+            placeholder="Введите email"
+            value="admin"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            label="Пароль"
+            labelPlacement="floating"
+            type="password"
+            placeholder="Введите пароль"
+            value="123456"
+          ></ion-input>
+        </ion-item>
+        <ion-button
+          routerLink="/home"
+          expand="block"
+          shape="round"
+          color="primary"
+          >Войти</ion-button
+        >
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
