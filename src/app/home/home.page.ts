@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Barcode, BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
 import { AlertController } from '@ionic/angular';
+import { ContactPayload, Contacts } from '@capacitor-community/contacts';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,7 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+  contacts: ContactPayload[] = [];
   barcodes: Barcode[] = [];
   isSupported = false;
   constructor(private alertController: AlertController) {}
@@ -16,6 +18,7 @@ export class HomePage implements OnInit {
     BarcodeScanner.isSupported().then((result) => {
       this.isSupported = result.supported;
     });
+    this.loadContacts();
   }
 
   async requestPermissions(): Promise<boolean> {
@@ -48,5 +51,23 @@ export class HomePage implements OnInit {
       buttons: ['OK'],
     });
     await alert.present();
+  }
+
+  async loadContacts() {
+    try {
+      const permission = await Contacts.requestPermissions();
+      if (!permission?.contacts) return;
+      else if (permission?.contacts === 'granted') {
+        const result = await Contacts.getContacts({
+          projection: {
+            name: true,
+            phones: true,
+          },
+        });
+        this.contacts = result.contacts;
+      }
+    } catch (e) {
+      console.log(e);
+    }
   }
 }

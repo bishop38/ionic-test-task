@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title> Contacts </ion-title>
+    <ion-title> Contacts ddd </ion-title>
     <ion-buttons size="small" slot="end">
       <ion-fab-button size="small" (click)="scan()" [disabled]="!isSupported">
         <ion-icon size="small" name="scan"></ion-icon>
@@ -8,3 +8,16 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
+<ion-content>
+  <ion-list *ngIf="contacts.length > 0">
+    <ion-item
+      *ngFor="let c of contacts"
+      [routerLink]="['/contact']"
+      [queryParams]="{id:c?.contactId}"
+    >
+      <ion-label> {{c?.name?.display}} </ion-label>
+      <ion-label> {{c?.phones?.[0]?.number}} </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

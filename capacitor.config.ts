@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.ionictesttask.www',
+  appId: 'com.ionictask.www',
   appName: 'ionic-test-task',
   webDir: 'www',
   server: {
