@@ -16,8 +16,6 @@
 git clone https://github.com/bishop38/ionic-test-task.git
 ```
 
-````
-
 2. После перейдите в папку:
 
 ```bash
@@ -87,6 +85,3 @@ npx cap sync
 - **iOS Version:** 13.0 and above
 
 Теперь вы готовы к работе над проектом Ionic Test Task. Счастливого кодирования!
-
-```
-````
